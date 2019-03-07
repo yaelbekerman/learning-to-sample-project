@@ -85,5 +85,5 @@ python evaluate_SNET_mnist.py --sampler_model_path log/SNET16mnistp2/model.ckpt 
 Our project and code are based on the work by Oren Dovrat et al. available at https://github.com/orendv/learning_to_sample.
 We want to thank the authors for publishing their code.
 
-We also want to thank Qi et al. for publishing their code at https://github.com/charlesq34/pointnet.
+We also want to thank Qi et al. for publishing the code for their work at https://github.com/charlesq34/pointnet.
 
