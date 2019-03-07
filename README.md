@@ -6,12 +6,13 @@ Variations on S-NET from "learning to sample" - https://github.com/orendv/learni
 ### Installation
 
 The original code was tested on Python 2.7.12, TensorFlow 1.2.1, CUDA 8.0 and cuDNN 5.1.1 on Ubuntu 16.04.
-We tested our new variaitons on Python 2.7.15, Tensorflow 1.12.0, CUDA 9.0 and cuDNN 7.2.1 on Ubuntu 16.04 and on the same setup but with CUDA 9.2. CUDA 9.0 worked better.
+We tested our new variaitons on Python 2.7.15, Tensorflow 1.12.0, CUDA 9.0 and cuDNN 7.2.1 on Ubuntu 16.04.
 The original setup tested by the original code should probably work as well.
 
 
 You may need to install h5py and wget.
 
+As explained in the original github, you might need to change the first few lines of the make file to point to your nvcc, tensorflow and cuda libraries. Also other changes might be needed depending on your setup.
 
 Compile the structural losses using the make file:
 
@@ -20,7 +21,7 @@ cd structural_losses/
 make
 ```
 
-As explained in the original github, you might need to change the first few lines of the make file to point to your nvcc, tensorflow and cuda libraries.
+
 
 
 
@@ -28,10 +29,16 @@ As explained in the original github, you might need to change the first few line
 
 #### PointNet training
 
-To train PointNet run the following command providing the saving directory:
+To train PointNet on ModelNet40 run the following command providing the saving directory:
 
 ```
 python train_classifier.py --log_dir log/baseline/PointNet1024
+```
+
+To train it on 3D MNIST run:
+
+```
+python train_classifier_mnist.py --log_dir log/baseline/PointNet1024mnist
 ```
 
 #### Unsupervised S-NET
@@ -42,11 +49,24 @@ To train S-NET with unlabled data run the following command providing the saved 
 python train_SNET_unsupervised.py --classifier_model_path log/baseline/PointNet1024/model.ckpt --num_out_points 64 --log_dir log/SNET64UNSUPERVISED
 ```
 
+Similarly, for MNIST use:
+
+```
+python train_SNET_unsupervised_mnist.py --classifier_model_path log/baseline/PointNet1024mnist/model.ckpt --num_out_points 32 --log_dir log/SNET32UNSUPERVISEDmnist
+```
+
 To evaluate run:
 
 ```
 python evaluate_SNET_unsupervised.py --sampler_model_path log/SNET64UNSUPERVISED/model.ckpt --dump_dir log/SNET64UNSUPERVISED/eval --num_out_points 64
 ```
+
+For MNIST:
+
+```
+python evaluate_SNET_unsupervised.py --sampler_model_path log/SNET64UNSUPERVISEDmnist/model.ckpt --dump_dir log/SNET64UNSUPERVISEDmnist/eval --num_out_points 32
+```
+
 
 #### Unsupervised S-NET with threashold
 
@@ -65,10 +85,11 @@ python evaluate_SNET_unsupervised.py --sampler_model_path log/SNET64UNSUPERVISED
 
 #### S-NET with smaller dataset
 
-To train S-NET on a smaller dataset 
+To train S-NET only on a part of the MNIST dataset run the following command providing the precentage of the data you want to use. For example if you want to use 20% run:
 
 ```
-bla bla bla....a.a.a.a.a.a.a..askalsjchsliduhcldwjncoidwq ncqihdgcwqlkjbc iuwqkdcboiuewqbd iew hbdckuhqbdc kuwqhbckuwqhbdckquwhbd
+python train_SNET_mnist.py --classifier_model_path log/baseline/PointNet1024mnist/model.ckpt --num_out_points 16 --log_dir log/SNET16mnistp2 --part_of_data 0.2
+python evaluate_SNET_mnist.py --sampler_model_path log/SNET16mnistp2/model.ckpt --dump_dir log/SNET16mnistp2/eval --num_out_points 16
 ```
 
 ### Acknowledgment
