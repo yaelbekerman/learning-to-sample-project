@@ -39,15 +39,11 @@ python train_classifier_mnist.py --log_dir log/baseline/PointNet1024mnist
 
 #### Unsupervised S-NET
 
-To train S-NET with unlabled data run the following command providing the saved PointNet model, number of points to sample and log directory:
+To train S-NET with unlabled data run one of the following commands providing the saved PointNet model, number of points to sample and log directory:
 
 ```
 python train_SNET_unsupervised.py --classifier_model_path log/baseline/PointNet1024/model.ckpt --num_out_points 64 --log_dir log/SNET64UNSUPERVISED
-```
 
-Similarly, for MNIST use:
-
-```
 python train_SNET_unsupervised_mnist.py --classifier_model_path log/baseline/PointNet1024mnist/model.ckpt --num_out_points 32 --log_dir log/SNET32UNSUPERVISEDmnist
 ```
 
@@ -55,11 +51,7 @@ To evaluate run:
 
 ```
 python evaluate_SNET_unsupervised.py --sampler_model_path log/SNET64UNSUPERVISED/model.ckpt --dump_dir log/SNET64UNSUPERVISED/eval --num_out_points 64
-```
 
-For MNIST:
-
-```
 python evaluate_SNET_unsupervised.py --sampler_model_path log/SNET64UNSUPERVISEDmnist/model.ckpt --dump_dir log/SNET64UNSUPERVISEDmnist/eval --num_out_points 32
 ```
 
