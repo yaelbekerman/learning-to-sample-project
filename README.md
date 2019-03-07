@@ -47,12 +47,10 @@ python train_SNET_unsupervised.py --classifier_model_path log/baseline/PointNet1
 python train_SNET_unsupervised_mnist.py --classifier_model_path log/baseline/PointNet1024mnist/model.ckpt --num_out_points 32 --log_dir log/SNET32UNSUPERVISEDmnist
 ```
 
-To evaluate run:
+To evaluate run the following providing the path to the trained S-NET model and path to output file:
 
 ```
 python evaluate_SNET_unsupervised.py --sampler_model_path log/SNET64UNSUPERVISED/model.ckpt --dump_dir log/SNET64UNSUPERVISED/eval --num_out_points 64
-
-python evaluate_SNET_unsupervised.py --sampler_model_path log/SNET64UNSUPERVISEDmnist/model.ckpt --dump_dir log/SNET64UNSUPERVISEDmnist/eval --num_out_points 32
 ```
 
 
@@ -62,6 +60,8 @@ To use a threashold when training, run the following command providing the previ
 
 ```
 python train_SNET_unsupervised_threashold.py --unsupervised_threashold 0.8 --classifier_model_path log/baseline/PointNet1024/model.ckpt --num_out_points 64 --log_dir log/SNET64UNSUPERVISEDTH8
+
+python train_SNET_unsupervised_threashold_mnist.py --classifier_model_path log/baseline/PointNet1024mnist/model.ckpt --num_out_points 32 --log_dir log/SNET32UNSTHRmnisto9 --unsupervised_threashold 0.9
 ```
 
 To evaluate run:
