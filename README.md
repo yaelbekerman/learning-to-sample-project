@@ -29,15 +29,11 @@ make
 
 #### PointNet training
 
-To train PointNet on ModelNet40 run the following command providing the saving directory:
+To train PointNet on ModelNet40 or MNIST run one of the following commands providing the saving directory:
 
 ```
 python train_classifier.py --log_dir log/baseline/PointNet1024
-```
 
-To train it on 3D MNIST run:
-
-```
 python train_classifier_mnist.py --log_dir log/baseline/PointNet1024mnist
 ```
 
