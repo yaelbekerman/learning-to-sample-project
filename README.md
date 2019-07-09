@@ -1,6 +1,7 @@
 # Learning to sample variations project
 
 Variations on S-NET from "learning to sample" - https://github.com/orendv/learning_to_sample
+
 For detailed explanation please read project_article.pdf 
 
 ### Abstract
