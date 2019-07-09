@@ -1,7 +1,21 @@
 # Learning to sample variations project
 
 Variations on S-NET from "learning to sample" - https://github.com/orendv/learning_to_sample
+For detailed explanation please read project_article.pdf 
 
+### Abstract
+The use of point clouds has been increasing over recent years, with applications ranging from gaming
+to autonomous cars. Processing large point clouds with deep neural networks uses high computational
+power, has high costs and takes a lot of time. Therefore, sampling those point clouds is highly
+necessary. A popular sampling technique is Farthest Point Sampling (FPS) which isn’t task related.
+Dovrat et al. showed that it is better to learn how to sample and proposed a new deep learning
+architecture that aims to simplify 3D point clouds, termed S-NET.
+In our work, we explored and implemented several variations on their network for classification
+purposes. We show that using an unsupervised approach for classification is not only possible but
+even preferable and improves the original S-NET results. We also show that it is possible to obtain
+even better results by training S-NET only with samples that the classifier have high confidence in its
+labeling. We also investigated if it’s possible to work with smaller and different datasets, that were
+not tested in the original paper.
 
 ### Installation
 
